@@ -24,7 +24,7 @@ export default function Projects({projects}: ProjectListProps): ReactElement {
     <div id='project'>
       <div className='bg-[#d0d4d6] my-2 p-4 w-full flex  items-center'>
       <div className='mt-14 text-xl tracking-widest uppercase text-[#010e0a]'>
-            My Projects
+            My Digital Projects
           </div>
        </div> 
       <div className="project-container flex items-center justify-between  border-y  py-10 lg:py-0 ">

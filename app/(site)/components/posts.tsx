@@ -39,13 +39,13 @@ export default function Posts({ posts }: PostListProps): ReactElement {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-slate-800 text-sm mb-1 line-clamp-1">
+                  <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-1 line-clamp-1">
                     {post.title}
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-2">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 mb-2">
                     {post.description}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-400 dark:text-slate-500">
                     {new Date(post.publishedAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',

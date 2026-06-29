@@ -18,7 +18,7 @@ export default async function Home() {
       <Main />
       
       {/* Projects Section */}
-      <section id='project' className='py-20 bg-white'>
+      <section id='project' className='py-20 bg-white dark:bg-gray-900'>
         <div className='max-w-[1240px] mx-auto px-4'>
           <div className='text-center mb-12'>
             <p className='section-subtitle'>Portfolio</p>
@@ -29,7 +29,7 @@ export default async function Home() {
       </section>
 
       {/* Blog Section */}
-      <section id='post' className='py-20 bg-slate-50/50'>
+      <section id='post' className='py-20 bg-slate-50/50 dark:bg-gray-900/50'>
         <div className='max-w-[1240px] mx-auto px-4'>
           <PostsSlideShow posts={posts} />
           <div className='text-center mb-12'>

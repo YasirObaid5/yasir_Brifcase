@@ -5,6 +5,7 @@
 @layer base {
   body {
     @apply bg-white text-slate-800 antialiased;
+    @apply dark:bg-gray-900 dark:text-slate-200;
   }
 }
 
@@ -19,40 +20,40 @@ html {
 /* Selection color */
 ::selection {
   @apply bg-blue-200 text-slate-900;
+  @apply dark:bg-blue-800 dark:text-slate-100;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track {
-  @apply bg-slate-100;
+  @apply bg-slate-100 dark:bg-gray-800;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 rounded-full;
+  @apply bg-slate-300 dark:bg-gray-600 rounded-full;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-400;
+  @apply bg-slate-400 dark:bg-gray-500;
 }
 
 /* ─── Section Headers ─── */
 .section-header {
-  @apply text-2xl sm:text-3xl font-bold text-slate-900 mb-2;
+  @apply text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2;
 }
 .section-subtitle {
-  @apply text-slate-500 text-sm uppercase tracking-[0.2em] font-medium;
+  @apply text-slate-500 dark:text-slate-400 text-sm uppercase tracking-[0.2em] font-medium;
 }
 
 /* ─── Card ─── */
 .card {
-  @apply bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300;
+  @apply bg-white dark:bg-gray-800 rounded-2xl border border-slate-100 dark:border-gray-700 
+         shadow-sm hover:shadow-md transition-shadow duration-300;
 }
 
 /* ─── Skill Cards ─── */
 .skill-card {
-  @apply p-5 bg-white rounded-xl border border-slate-100 shadow-sm 
-         hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 
-         transition-all duration-300;
+  @apply p-4 bg-white dark:bg-gray-800 rounded-xl border border-slate-100 dark:border-gray-700
+         shadow-sm hover:shadow-md hover:border-blue-200 dark:hover:border-blue-800 
+         hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3;
 }
 
 /* ─── Timeline overrides ─── */
@@ -60,41 +61,37 @@ html {
   @apply shadow-md !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
 }
+.dark .vertical-timeline-element-content {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+.dark .vertical-timeline-element-content-arrow {
+  border-right-color: #334155 !important;
+}
 .vertical-timeline::before {
-  @apply bg-slate-200 !important;
+  @apply bg-slate-200 dark:bg-gray-700 !important;
+}
+.vertical-timeline-element-date {
+  @apply dark:text-slate-400 !important;
 }
 
 /* ─── Form inputs ─── */
 .form-input {
-  @apply w-full border border-slate-200 rounded-lg px-4 py-3 text-sm
+  @apply w-full border border-slate-200 dark:border-gray-600 rounded-lg px-4 py-3 text-sm
          focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400
-         transition-all duration-200 bg-white;
+         transition-all duration-200 bg-white dark:bg-gray-700 dark:text-slate-200;
 }
 
 /* ─── Blog / Project cards ─── */
 .content-card {
-  @apply cursor-pointer overflow-hidden rounded-xl border border-slate-100 
-         bg-white shadow-sm hover:shadow-lg transition-all duration-300 
+  @apply cursor-pointer overflow-hidden rounded-xl border border-slate-100 dark:border-gray-700
+         bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 
          hover:-translate-y-1;
-}
-
-/* ─── Overlay decorations (keep for depth) ─── */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(148, 163, 184, 0.04) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
 
 /* ─── Gradient text utility ─── */
 .gradient-text {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-700;
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-700 dark:from-blue-400 dark:to-slate-300;
 }

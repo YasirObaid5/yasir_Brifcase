@@ -44,10 +44,10 @@ export default function Projects({ projects }: ProjectListProps): ReactElement {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-slate-800 text-sm mb-1 line-clamp-1">
+                  <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-1 line-clamp-1">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-slate-400 line-clamp-2">
+                  <p className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">
                     {project.description || 'View project details →'}
                   </p>
                 </div>
@@ -61,8 +61,8 @@ export default function Projects({ projects }: ProjectListProps): ReactElement {
         <div className="flex justify-center mt-10">
           <button
             onClick={handleClick}
-            className="px-6 py-2.5 border border-slate-200 text-slate-600 rounded-lg 
-                       hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 text-sm font-medium"
+            className="px-6 py-2.5 border border-slate-200 dark:border-gray-600 text-slate-600 dark:text-slate-400 rounded-lg 
+                       hover:bg-slate-50 dark:hover:bg-gray-800 hover:border-slate-300 dark:hover:border-gray-500 transition-all duration-200 text-sm font-medium"
           >
             Load More
           </button>

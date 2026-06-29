@@ -30,7 +30,7 @@ function About() {
   ];
 
   return (
-    <section id='about' className='py-20 bg-white'>
+    <section id='about' className='py-20 bg-white dark:bg-gray-900'>
       <div className='max-w-[1240px] mx-auto px-4'>
         {/* Section Header */}
         <motion.div 
@@ -52,7 +52,7 @@ function About() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <p className='text-slate-600 leading-relaxed text-lg'>
+          <p className='text-slate-600 dark:text-slate-300 leading-relaxed text-lg'>
             I am an animal reproduction researcher with 23+ years of experience in livestock 
             reproduction, currently working in the Artificial Insemination Lab. As a self-taught 
             programmer, I am proficient in React.js, HTML, CSS, and JavaScript — allowing me to 
@@ -82,6 +82,7 @@ function About() {
                   boxShadow: '0 1px 3px rgba(0,0,0,0.06)'
                 }}
                 contentArrowStyle={{ borderRight: '7px solid #e2e8f0' }}
+                iconStyle={t.icon.iconStyle}
                 date={t.date}
                 {...t.icon}
               >

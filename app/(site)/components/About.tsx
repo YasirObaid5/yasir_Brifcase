@@ -4,97 +4,100 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faSchool, faCode } from '@fortawesome/free-solid-svg-icons';
-import Work from '../../../public/assets/work.png'
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const workIcon = {
   icon: <FontAwesomeIcon icon={faBriefcase} />,
-  iconStyle: { background: 'rgb(33, 150, 243)', color: '#fff' }
+  iconStyle: { background: '#4a6a8e', color: '#fff' }
 };
 const CodeIcon = {
-  icon: <FontAwesomeIcon icon={faCode}/>,
-  iconStyle: { background: 'rgb(33, 150, 243)', color: '#fff' }
+  icon: <FontAwesomeIcon icon={faCode} />,
+  iconStyle: { background: '#5c7fa3', color: '#fff' }
 };
 const schoolIcon = {
   icon: <FontAwesomeIcon icon={faSchool} />,
-  iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' }
+  iconStyle: { background: '#64748b', color: '#fff' }
 };
-
-
-  
-  
 
 function About() {
   const timeline = [
-
-    { icon: CodeIcon, date: '', title: 'My hobbies and interests', subtitle: '', desc: ' Popular Science Magazine and history books reading, and Swimming' },
-    { icon: CodeIcon, date: 'April 2021 - present', title: 'Self-taught programmer', subtitle: 'Frontend developer', desc: ' React.js, HTML, CSS, JavaScript, and Headless CMS' },
-    { icon: workIcon, date: '2006 - present', title: 'Head of Livestock Reproduction Research Section', subtitle: '', desc: '(Livestock Production Research Centre) Directorate General of Agriculture & Livestock Research, Ministry of Agriculture, Sultanate of Oman. ' },
-    { icon: workIcon, date: '2000 - 2006', title: 'Animal Production specialist ', subtitle: 'Muscat, Sultanate of Oman', desc: '(Rangeland department) General Directorate of Animal Production, Ministry of Agriculture and Fisheries. ' },
-    { icon: schoolIcon, date: '2002 - 2005', title: '•	Master of Animal Sciences ', subtitle: 'Master Degree, MSc', desc: 'Peoples Friendship University of Russia in ,2005.' },
-    { icon: schoolIcon, date: '1994-1999', title: '•	Bachelor of Sciences (Animal Sciences)', subtitle: 'Bachelor Degree, BSc', desc: 'Sultan Qaboos University, Oman, 1999.' },
-    
+    { icon: CodeIcon, date: '', title: 'Hobbies & Interests', subtitle: '', desc: 'Popular Science Magazine and history books reading, and Swimming' },
+    { icon: CodeIcon, date: 'April 2021 – Present', title: 'Self-Taught Programmer', subtitle: 'Frontend Developer', desc: 'React.js, HTML, CSS, JavaScript, and Headless CMS' },
+    { icon: workIcon, date: '2006 – Present', title: 'Head of Livestock Reproduction Research Section', subtitle: 'Livestock Production Research Centre', desc: 'Directorate General of Agriculture & Livestock Research, Ministry of Agriculture, Sultanate of Oman.' },
+    { icon: workIcon, date: '2000 – 2006', title: 'Animal Production Specialist', subtitle: 'Muscat, Sultanate of Oman', desc: 'Rangeland Department, General Directorate of Animal Production, Ministry of Agriculture and Fisheries.' },
+    { icon: schoolIcon, date: '2002 – 2005', title: 'Master of Animal Sciences', subtitle: 'MSc Degree', desc: 'Peoples Friendship University of Russia, 2005.' },
+    { icon: schoolIcon, date: '1994 – 1999', title: 'Bachelor of Animal Sciences', subtitle: 'BSc Degree', desc: 'Sultan Qaboos University, Oman, 1999.' },
   ];
-  
 
   return (
-    <div  id='about' className=''>
-      <div >
-        <div className='bg-[#d0d4d6] my-2 p-4 w-full flex  items-center'>
-        <div className=' relative w-full h-[400px] ' >
-       
-        <Image
-          className='image-about-container z-5 opacity-50'
-          width ={1000}
-          height={1000}
-          src={Work}
-          alt=''
-        />
-        <div className='top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2'>
-        
-        
-        </div>
-        </div>
-         
-        </div>
-        
-        <div className=' margin-inline-end: 300px'>
-        <div className='py-2 text-justify '>
-          <div className='bg-[#d0d4d6] my-2   '>
-            <p className='flex mt-14 text-xl tracking-widest uppercase text-[#010e0a] py-2'>About Me</p>
-          </div>
-           <p className='about-container'>
-          I am an animal reproduction researcher. I have 23 years of experience in livestock reproduction research, currently working in Artificial insemination Lab.  Also, as a self-taught programmer, I am proficient in React.js, HTML, CSS, and JavaScript, allowing me to bring a unique skill set to my work by combining animal science expertise with innovative programming technology. This enables me to tackle challenges with a fresh perspective and a dedication to finding cutting-edge solutions.
-        </p>
-        </div>
-          
-         
-         </div>
+    <section id='about' className='py-20 bg-white'>
+      <div className='max-w-[1240px] mx-auto px-4'>
+        {/* Section Header */}
+        <motion.div 
+          className='text-center mb-16'
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className='section-subtitle'>About</p>
+          <h2 className='section-header'>Who I Am</h2>
+        </motion.div>
 
-        <VerticalTimeline>
-        {timeline.map((t, i) => {
-         
-          return <VerticalTimelineElement
-            key={i}
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-            date={t.date}
-            {...t.icon}
-          >
-            {t.title ? <React.Fragment>
-              <h3 className="vertical-timeline-element--education">{t.title}</h3>
-              {t.subtitle && <h4 className="vertical-timeline-element-subtitle">{t.subtitle}</h4>}
-              {t.desc && <p>{t.desc}</p>}
-            </React.Fragment> : undefined}
-          </VerticalTimelineElement>
-        })}
-      </VerticalTimeline>
-      
+        {/* About text */}
+        <motion.div 
+          className='max-w-3xl mx-auto text-center mb-16'
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <p className='text-slate-600 leading-relaxed text-lg'>
+            I am an animal reproduction researcher with 23+ years of experience in livestock 
+            reproduction, currently working in the Artificial Insemination Lab. As a self-taught 
+            programmer, I am proficient in React.js, HTML, CSS, and JavaScript — allowing me to 
+            bring a unique skill set to my work by combining animal science expertise with 
+            innovative programming technology. This enables me to tackle challenges with a fresh 
+            perspective and a dedication to finding cutting-edge solutions.
+          </p>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <VerticalTimeline>
+            {timeline.map((t, i) => (
+              <VerticalTimelineElement
+                key={i}
+                className="vertical-timeline-element--work"
+                contentStyle={{ 
+                  background: '#fff', 
+                  color: '#334155',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '12px',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.06)'
+                }}
+                contentArrowStyle={{ borderRight: '7px solid #e2e8f0' }}
+                date={t.date}
+                {...t.icon}
+              >
+                {t.title && (
+                  <>
+                    <h3 className="font-semibold text-slate-800">{t.title}</h3>
+                    {t.subtitle && <h4 className="text-sm text-slate-500 mt-1">{t.subtitle}</h4>}
+                    {t.desc && <p className="text-sm text-slate-500 mt-2 leading-relaxed">{t.desc}</p>}
+                  </>
+                )}
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </motion.div>
       </div>
-  
-      
-    </div>
+    </section>
   );
 }
 

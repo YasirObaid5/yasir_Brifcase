@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import DownloadPdf from '../components/downloadPdf';
-import Yasir from '../public/assets/yasir.png'
+import Yasir from '../../../public/assets/yasir.png'
 const CV = () => {
   return (
     <>

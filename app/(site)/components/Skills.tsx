@@ -8,95 +8,30 @@ import Google from '../../../public/assets/skills/googleEarth.png';
 import Sanity from '../../../public/assets/skills/sanity.png';
 import Animal from '../../../public/assets/skills/ai.png';
 
+const skills = [
+  { icon: Css, label: 'CSS' },
+  { icon: Javascript, label: 'JavaScript' },
+  { icon: ReactImg, label: 'React' },
+  { icon: NextJS, label: 'Next.js' },
+  { icon: Tailwind, label: 'Tailwind' },
+  { icon: Sanity, label: 'Sanity.io' },
+  { icon: Google, label: 'Google Earth Engine' },
+  { icon: Animal, label: 'Animal Production' },
+];
 
 const Skills = () => {
   return (
-    <div className=' grid grid-cols-2 lg:grid-cols-4 gap-12'>
-        
-          <div className=' p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-100 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4  justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={Css} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>CSS</h3>
-              </div>
-            </div>
+    <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+      {skills.map((skill, i) => (
+        <div key={i} className='skill-card flex items-center gap-3'>
+          <div className='flex-shrink-0 w-10 h-10 flex items-center justify-center'>
+            <Image src={skill.icon} width={36} height={36} alt={skill.label} />
           </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={Javascript} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>JS</h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={ReactImg} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>React</h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={Google} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>Google Earth Engine</h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={Sanity} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>Sanity.Io</h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-left'>
-              <div className='m-auto'>
-                <Image src={Animal} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center '>
-                <h3 className='text-sm font-size: 875rem'>Animal Pro. </h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={Tailwind} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>Tailwind </h3>
-              </div>
-            </div>
-          </div>
-          <div className='p-6 shadow-xl bg-white rounded-xl hover:scale-105 ease-in duration-300 shadow-slate-800/100'>
-            <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-              <div className='m-auto'>
-                <Image src={NextJS} width={64} height={64} alt='/' />
-              </div>
-              <div className='flex flex-col items-center justify-center'>
-                <h3>Next Js </h3>
-              </div>
-            </div>
-          </div>
-         
+          <span className='text-sm font-medium text-slate-700'>{skill.label}</span>
         </div>
+      ))}
+    </div>
   );
 };
-
 
 export default Skills;

@@ -1,6 +1,3 @@
-
-
-
 import Posts from './components/posts'
 import PostsSlideShow from './components/PostsSlideShow'
 import Projects from './components/projects'
@@ -9,31 +6,42 @@ import About from './components/About'
 import Contact from './components/Contact'
 import { getProjects } from '@/sanity/sanity-utils'
 import { getPosts } from '@/sanity/sanity-utils'
-import {createClient} from 'next-sanity'
-import  client  from '../../sanity/config/client-config'
-import imageUrlBuilder from "@sanity/image-url";
-import Image from 'next/image'
-import { Project, ProjectListProps } from '../../types/Project';
-import { Post, PostListProps } from '../../types/Post';
-import Link from 'next/link';
-
-const builder = imageUrlBuilder(client);
-
+import { Project } from '../../types/Project';
+import { Post } from '../../types/Post';
 
 export default async function Home() {
   const posts: Post[] = await getPosts();
   const projects: Project[] = await getProjects();
+  
   return (
-    <div className="h-screen container mx-auto px-4"> 
+    <>
       <Main />
-   
-   
-    <Projects projects={projects}/>
-   
-    <PostsSlideShow posts={posts}/>
-   <Posts posts={posts}/>
-   <About />
-   <Contact />
-   </div>
+      
+      {/* Projects Section */}
+      <section id='project' className='py-20 bg-white'>
+        <div className='max-w-[1240px] mx-auto px-4'>
+          <div className='text-center mb-12'>
+            <p className='section-subtitle'>Portfolio</p>
+            <h2 className='section-header'>My Digital Projects</h2>
+          </div>
+          <Projects projects={projects} />
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section id='post' className='py-20 bg-slate-50/50'>
+        <div className='max-w-[1240px] mx-auto px-4'>
+          <PostsSlideShow posts={posts} />
+          <div className='text-center mb-12'>
+            <p className='section-subtitle'>Blog</p>
+            <h2 className='section-header'>Latest Posts</h2>
+          </div>
+          <Posts posts={posts} />
+        </div>
+      </section>
+
+      <About />
+      <Contact />
+    </>
   )
 }

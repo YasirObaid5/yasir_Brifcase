@@ -1,13 +1,24 @@
 'use client'
-const Button = ({ children, onClick }: any) => {
-  return (
-    <button
-      className={` space-x-3 mr-8 font-semibold bg-gradient-to-r from-blue-500 to-purple-600
-      text-gray-100 rounded-full ring-2 ring-slate-400 px-3 py-2 
-      hover:bg-white hover:text-white hover:ring-slate-300 mx-8 shadow-lg shadow-slate-800/100`}
-      onClick={onClick}
-    >{children}</button>
-  )
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  type?: 'button' | 'submit';
 }
 
-export default Button
+const Button = ({ children, onClick, className = '', type = 'button' }: ButtonProps) => {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200
+                  bg-slate-800 text-white hover:bg-slate-700 shadow-lg shadow-slate-800/10
+                  ${className}`}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;

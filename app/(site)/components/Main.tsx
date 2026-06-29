@@ -1,115 +1,151 @@
 'use client'
-import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
-import Yasir from '../../../public/assets/background.png'
+import HeroImg from '../../../public/assets/hero.png'
 import Skills from './Skills'
 import { motion } from 'framer-motion';
+import { HiArrowDown } from 'react-icons/hi';
+
 const Main = () => {
-
-  const imageVariants = {
-    initial: { x: -100, opacity: 0 },
-    animate: { x: 20, opacity: 50 },
-  };
-  
-  const divVariants = {
-    initial: { y: 70, opacity: 0 },
-    animate: { y: 10, opacity: 1 },
-  };
-  const textVariants = {
-    initial: { y: 700, opacity: 20 },
-    animate: { y: 0, opacity: 1 },
-  };
-
   return (
-    
-    <div id='home' className='flex max-w-[1240px]   mx-auto text-center items-center justify-between border-y py-10 lg:py-0'>
-      <div className='max-w-[1240px] h-scree w-full mx-auto p-2 flex justify-center items-center'>
-       
-        <div className=' title-container mt 20 uppercase text-sm tracking-widest top: 50px'>
-          <p  className='text-4xl font-semibold mt-20 font-Lobster'>
-            Welcome to My Portfolio
-          </p>
-           
-          <div className='flex  items-center justify-between py-3'>
-          <div className='grid grid-cols-4 lg:grid-cols-2 gap-12'>
-        
-      <motion.div
-      className="hero-container"
-      initial="initial"
-      animate="animate"
-      transition={{ staggerChildren: 0.2 }}
-    > 
-    
-     <div >
-    <motion.div variants={imageVariants} transition={{ duration: 0.9 }}>
-      
-                  </motion.div>
-                  </div> 
-                  </motion.div> 
-                  </div>
-                </div>
-          
-      <div>
-      <motion.div
-      className="hero-container"
-      initial="initial"
-      animate="animate"
-      transition={{ staggerChildren: 0.2 }}
-    > 
-   
-     <div className="image-container shadow-slate-800/100 ">
-  
-    <motion.div variants={textVariants} transition={{ duration: 0.9 }}>
-   
-       <p className="font-Caveat text-sm font-medium group-hover:text-slate-900">Yasir Obaid Al-Shukaili.</p>
-    <p className="font-Caveat text-sm font-medium group-hover:text-slate-900">Front-End Developer</p>
-    <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700">and</p>
-    <p className="font-Caveat text-sm font-medium group-hover:text-slate-900">Animal Production Specialist</p>    
-        </motion.div>
-    <motion.div variants={divVariants} transition={{ duration: 0.9 }}>
-    <div className="group flex items-center ">
-          <Image 
-          src={Yasir}
-          width= {1000}
-          height={1000}
-          alt='/'
-          >
+    <section id='home' className='relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden'>
+      {/* Subtle background geometric element */}
+      <div className='absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-blue-100/40 to-slate-200/20 rounded-bl-full -z-0' />
+      <div className='absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-slate-100/50 to-blue-50/30 rounded-tr-full -z-0' />
 
-          </Image>
-          <div className="ltr:ml-3 rtl:mr-3">
-   
-          </div>
-          </div> 
-          </motion.div> 
-        </div>  
-          {/* Skills */}
-          <div className='max-w-[640px] mx-auto flex flex-col justify-center h-full'>
-       
-        
-         {/* Skills */}
-         <motion.div
-        className="text-container"
-        variants={divVariants}
-        transition={{ duration: 0.9 }}
-      >
-         <div className=' text-xl tracking-widest uppercase text-[#030303]'>
-         My  Skills
-        
+      <div className='max-w-[1240px] mx-auto px-4 w-full z-10 py-20 lg:py-0'>
+        <div className='flex flex-col lg:flex-row items-center gap-12 lg:gap-20'>
+          
+          {/* Left — Text */}
+          <motion.div 
+            className='flex-1 text-center lg:text-left'
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.p 
+              className='text-sm uppercase tracking-[0.25em] text-slate-500 mb-4 font-medium'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Front-End Developer &amp; Researcher
+            </motion.p>
+            
+            <motion.h1 
+              className='text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Yasir Obaid<br />
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-slate-600'>
+                Al-Shukaili
+              </span>
+            </motion.h1>
+            
+            <motion.p 
+              className='text-lg text-slate-600 mb-2 max-w-md mx-auto lg:mx-0'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              Animal Production Specialist
+            </motion.p>
+            
+            <motion.p 
+              className='text-slate-500 mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+            >
+              Combining 23+ years of livestock research with modern web development. 
+              Building digital solutions with React, Next.js &amp; Headless CMS.
+            </motion.p>
+
+            <motion.div 
+              className='flex gap-4 justify-center lg:justify-start'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+            >
+              <a 
+                href='#project'
+                className='px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors duration-300 text-sm font-medium shadow-lg shadow-slate-800/20'
+              >
+                View Projects
+              </a>
+              <a 
+                href='#contact'
+                className='px-6 py-3 border border-slate-300 text-slate-700 rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all duration-300 text-sm font-medium'
+              >
+                Get In Touch
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right — Image */}
+          <motion.div 
+            className='flex-1 flex justify-center lg:justify-end'
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className='relative'>
+              {/* Decorative frame */}
+              <div className='absolute -inset-3 bg-gradient-to-br from-blue-400/20 to-slate-400/20 rounded-2xl blur-sm' />
+              <div className='relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-white/60'>
+                <Image 
+                  src={HeroImg}
+                  width={480}
+                  height={640}
+                  alt='Yasir Obaid Al-Shukaili'
+                  className='object-cover w-full max-w-[380px] lg:max-w-[420px] h-auto'
+                  priority
+                />
+              </div>
+              {/* Small accent badge */}
+              <div className='absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg px-4 py-2 flex items-center gap-2 border border-slate-100'>
+                <span className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
+                <span className='text-xs font-medium text-slate-600'>Available for Work</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
-        <div className=' flex max-w-[1240px]  mx-auto text-center items-center justify-between border-y py-10 '>
-        <Skills  />
-        </div>
+
+        {/* Scroll indicator */}
+        <motion.div 
+          className='absolute bottom-8 left-1/2 -translate-x-1/2'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          >
+            <HiArrowDown className='text-slate-400 w-5 h-5' />
+          </motion.div>
         </motion.div>
-        </div>   
-        </motion.div>  
       </div>
-          
-          
+
+      {/* Skills section — integrated below hero */}
+      <div className='absolute bottom-0 left-0 right-0 hidden lg:block'>
+        <div className='max-w-[1240px] mx-auto px-4'>
+          <div className='border-t border-slate-200 py-6'>
+            <Skills />
+          </div>
         </div>
       </div>
-    </div>
-    
+
+      {/* Mobile skills */}
+      <div className='lg:hidden w-full px-4 mt-8'>
+        <div className='border-t border-slate-200 pt-8'>
+          <p className='text-xs uppercase tracking-[0.2em] text-slate-400 mb-4 text-center'>Skills</p>
+          <Skills />
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/cv",
+      "destination": "https://yasir-al-shukaili.vercel.app/cv",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://yasir-al-shukaili.vercel.app/",
+      "permanent": true
+    }
+  ]
+}
